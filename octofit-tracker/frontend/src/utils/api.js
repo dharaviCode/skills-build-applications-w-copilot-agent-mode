@@ -1,7 +1,12 @@
 const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim();
+const hasValidCodespaceName =
+  typeof codespaceName === 'string' &&
+  codespaceName.length > 0 &&
+  codespaceName !== 'undefined' &&
+  codespaceName !== 'null';
 
 export function getApiBaseUrl() {
-  if (codespaceName) {
+  if (hasValidCodespaceName) {
     return `https://${codespaceName}-8000.app.github.dev`;
   }
 
@@ -10,6 +15,11 @@ export function getApiBaseUrl() {
 
 export function getApiUrl(resource) {
   const cleanResource = String(resource).replace(/^\/+|\/+$/g, '');
+
+  if (import.meta.env.DEV) {
+    return `/api/${cleanResource}/`;
+  }
+
   return `${getApiBaseUrl()}/api/${cleanResource}/`;
 }
 
