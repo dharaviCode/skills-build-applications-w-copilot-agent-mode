@@ -10,7 +10,7 @@ function Users() {
 
     async function loadUsers() {
       try {
-        const response = await fetch(getApiUrl('users'));
+        const response = await fetch(getApiUrl('/api/users/'));
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);

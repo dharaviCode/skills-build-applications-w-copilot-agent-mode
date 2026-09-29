@@ -10,7 +10,7 @@ function Leaderboard() {
 
     async function loadLeaderboard() {
       try {
-        const response = await fetch(getApiUrl('leaderboard'));
+        const response = await fetch(getApiUrl('/api/leaderboard/'));
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);

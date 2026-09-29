@@ -13,14 +13,14 @@ export function getApiBaseUrl() {
   return 'http://localhost:8000';
 }
 
-export function getApiUrl(resource) {
-  const cleanResource = String(resource).replace(/^\/+|\/+$/g, '');
+export function getApiUrl(path) {
+  const cleanPath = String(path).replace(/^\/+|\/+$/g, '');
 
   if (import.meta.env.DEV) {
-    return `/api/${cleanResource}/`;
+    return `/${cleanPath}/`;
   }
 
-  return `${getApiBaseUrl()}/api/${cleanResource}/`;
+  return `${getApiBaseUrl()}/${cleanPath}/`;
 }
 
 export function normalizeRecords(payload) {
