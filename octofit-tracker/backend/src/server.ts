@@ -21,6 +21,7 @@ app.get('/api/config', (_request, response) => {
     appName: 'OctoFit Tracker',
     apiBaseUrl: getApiBaseUrl(),
     port,
+    environment: process.env.CODESPACE_NAME ? 'codespaces' : 'localhost',
   });
 });
 
