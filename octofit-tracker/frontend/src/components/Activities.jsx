@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getApiUrl, normalizeRecords } from '../utils/api';
+import { normalizeRecords } from '../utils/api';
 
 function Activities() {
   const [activities, setActivities] = useState([]);
@@ -10,7 +10,7 @@ function Activities() {
 
     async function loadActivities() {
       try {
-        const response = await fetch(getApiUrl('/api/activities/'));
+        const response = await fetch('/api/activities/');
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);

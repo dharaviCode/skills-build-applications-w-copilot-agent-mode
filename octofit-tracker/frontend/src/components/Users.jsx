@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getApiUrl, normalizeRecords } from '../utils/api';
+import { normalizeRecords } from '../utils/api';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -10,7 +10,7 @@ function Users() {
 
     async function loadUsers() {
       try {
-        const response = await fetch(getApiUrl('/api/users/'));
+        const response = await fetch('/api/users/');
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);

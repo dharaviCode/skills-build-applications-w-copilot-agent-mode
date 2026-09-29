@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getApiUrl, normalizeRecords } from '../utils/api';
+import { normalizeRecords } from '../utils/api';
 
 function Teams() {
   const [teams, setTeams] = useState([]);
@@ -10,7 +10,7 @@ function Teams() {
 
     async function loadTeams() {
       try {
-        const response = await fetch(getApiUrl('/api/teams/'));
+        const response = await fetch('/api/teams/');
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);

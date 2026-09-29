@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getApiUrl, normalizeRecords } from '../utils/api';
+import { normalizeRecords } from '../utils/api';
 
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -10,7 +10,7 @@ function Workouts() {
 
     async function loadWorkouts() {
       try {
-        const response = await fetch(getApiUrl('/api/workouts/'));
+        const response = await fetch('/api/workouts/');
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
